@@ -41,6 +41,10 @@ Run tests:
 python manage.py test
 ```
 
+For a full walkthrough of every endpoint with runnable `curl` examples
+(success and failure cases for each role), see
+[API_TESTING.md](API_TESTING.md).
+
 ## Roles & permission logic
 
 Role lives on a custom `User` model (`accounts.User.role`), one of
