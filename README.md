@@ -148,6 +148,28 @@ Attempting the same request with `"assigned_to"` set to `bob`'s id returns
   `403 Forbidden` (visible, but only Admin may delete).
 - `bob` (User) calling `GET /api/users/` → `403 Forbidden`.
 
+## Postman collection
+
+A ready-to-import collection and environment live in [`postman/`](postman/):
+
+- `Django-JWT-RBAC.postman_collection.json`
+- `Django-JWT-RBAC.postman_environment.json`
+
+Import both into Postman, select the "Django JWT RBAC - Local" environment, and:
+
+1. Run `python manage.py seed_demo` first so the default credentials
+   (`admin`/`mgr_sales`/`alice`, passwords as in the environment file) exist.
+2. Run the three requests in **Auth** (`Login - Admin`, `Login - Manager`,
+   `Login - User`) — each has a test script that saves its access token into
+   `admin_access` / `manager_access` / `user_access` collection variables
+   used by every other request.
+3. Set the `user_id` and `manager_id` collection variables to `alice`'s and
+   `mgr_sales`'s ids (visible in the `List Users - as Admin` response) before
+   running the **Users** → *Register User* and **Tasks** → *Create Task*
+   requests.
+4. Run the **Users** and **Tasks** folders to see the same role-scoping and
+   403/404 behavior documented above, straight from Postman.
+
 ## Project layout
 
 ```
