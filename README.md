@@ -155,3 +155,4 @@ config/     settings, root urls, wsgi/asgi
 accounts/   custom User model, roles, team (manager FK), auth-adjacent endpoints
 tasks/      Task model + role-scoped CRUD API
 ```
+# Django-JWT-role-based-API
